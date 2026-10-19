@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>로그인 · 마이</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="intro-wrap">
+    <div class="intro-left">
+      <div class="intro-logo">마이</div>
+      <div>
+        <h1>나만의<br>프로필,<br>마이로.</h1>
+        <p>템플릿을 고르고 정보를 입력하면<br>프로필 페이지가 바로 완성돼요.</p>
+        <div class="intro-features">
+          <div class="intro-feature">레이아웃 9종 · 테마 6종</div>
+          <div class="intro-feature">프로필 저장·관리</div>
+          <div class="intro-feature">연락처·깃허브·경력 입력</div>
+        </div>
+        <a href="index.html" class="btn-guest">게스트로 둘러보기</a>
+      </div>
+      <div class="intro-bottom">© 2026 PCS 20419</div>
+    </div>
+
+    <div class="intro-right">
+      <div class="container">
+        <div class="tab">
+          <button class="tab-btn active" onclick="showTab('login')">로그인</button>
+          <button class="tab-btn" onclick="showTab('register')">회원가입</button>
+        </div>
+        <div id="login">
+          <h2>다시 오셨군요!</h2>
+          <input type="email" id="loginEmail" placeholder="이메일">
+          <input type="password" id="loginPw" placeholder="비밀번호">
+          <button onclick="doLogin()">로그인</button>
+          <p id="loginMsg" class="msg"></p>
+        </div>
+        <div id="register" style="display:none">
+          <h2>처음 오셨군요!</h2>
+          <input type="text" id="regName" placeholder="이름">
+          <input type="email" id="regEmail" placeholder="이메일">
+          <input type="password" id="regPw" placeholder="비밀번호">
+          <button onclick="doRegister()">가입하기</button>
+          <p id="registerMsg" class="msg"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    var user = getUser();
+    if (user) location.href = 'index.html';
+    if (location.hash === '#register') showTab('register');
+  </script>
+</body>
+</html>

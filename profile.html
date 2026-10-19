@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>내 프로필 · 마이</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+</head>
+<body>
+  <nav>
+    <div class="logo"><a href="index.html">마이</a></div>
+    <div class="nav-links">
+      <a href="template.html">템플릿</a>
+      <a href="myprofiles.html">내 프로필</a>
+      <a href="edit.html">프로필 편집</a>
+    </div>
+    <div class="nav-auth" id="navAuth"></div>
+  </nav>
+
+  <div class="pbar"><select id="profileSelect" onchange="switchProfile(this.value)"></select></div>
+  <div id="profileOutput"></div>
+
+  <div style="text-align:center; padding: 32px;">
+    <button class="btn-sub" onclick="location.href='edit.html'">편집으로 돌아가기</button>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+  checkLogin();
+  renderProfileBar();
+  renderProfile();
+</script>
+</body>
+</html>

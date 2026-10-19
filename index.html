@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>마이 — 나만의 프로필 만들기</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+</head>
+<body>
+  <nav>
+    <div class="logo"><a href="index.html">마이</a></div>
+    <div class="nav-links">
+      <a href="template.html">템플릿</a>
+      <a href="myprofiles.html">내 프로필</a>
+      <a href="edit.html">프로필 편집</a>
+    </div>
+    <div class="nav-auth" id="navAuth"></div>
+  </nav>
+
+  <div class="hero-wrap">
+    <section class="hero hero-split">
+      <div class="hero-text">
+        <div class="eyebrow">프로필 페이지 메이커</div>
+        <h1 id="heroTitle">정보만 입력하면<br>내 프로필 페이지가<br>완성돼요</h1>
+        <p id="heroSub">이름, 사진, 경험, 링크를 입력하고 템플릿을 고르면 나를 소개하는 웹페이지가 바로 만들어져요.</p>
+        <div class="hero-btns">
+          <a id="heroBtn1" href="login.html" class="hero-link">바로 시작하기</a>
+          <a id="heroBtn2" href="template.html" class="hero-link-white">템플릿 보러가기</a>
+        </div>
+        <ul class="hero-points">
+          <li>레이아웃 9종</li>
+          <li>색상 테마 6종</li>
+          <li>프로필 여러 개 저장</li>
+        </ul>
+      </div>
+      <div>
+        <div class="collage-label">이런 프로필 페이지가 만들어져요</div>
+        <div class="collage" id="collage"></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="section">
+    <h3>이렇게 만들어요</h3>
+    <div class="stepper">
+      <div class="step"><div class="step-dot">1</div><b>회원가입</b><p>이메일과 비밀번호로<br>간단하게 가입하세요.</p></div>
+      <div class="step"><div class="step-dot">2</div><b>템플릿 선택</b><p>마음에 드는 디자인을<br>골라보세요.</p></div>
+      <div class="step"><div class="step-dot">3</div><b>프로필 완성</b><p>정보를 입력하면 나만의<br>프로필이 완성돼요.</p></div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <div>
+      <b>지금, 나만의 프로필을 만들어보세요</b>
+      <p>가입하고 템플릿을 고르면 바로 시작할 수 있어요.</p>
+    </div>
+    <a id="ctaBtn" class="cta-btn" href="login.html">무료로 시작하기</a>
+  </div>
+
+  <footer>
+    <div>마이</div>
+    <div>© 2026 Double Min. All rights reserved.</div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    var user = getUser();
+    if (user) {
+      $('heroTitle').innerHTML = esc(user.name) + '님,<br>오늘은 어떤 프로필을 만들까요?';
+      $('heroSub').textContent = '템플릿을 고르고 내용을 채우면 바로 완성돼요.';
+      $('heroBtn1').textContent = '프로필 편집하기'; $('heroBtn1').href = 'edit.html';
+      $('heroBtn2').textContent = '내 프로필 보기'; $('heroBtn2').href = 'myprofiles.html';
+      $('ctaBtn').textContent = '프로필 편집하기'; $('ctaBtn').href = 'edit.html';
+    }
+    renderCollage();
+  </script>
+</body>
+</html>

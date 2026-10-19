@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>템플릿 · 마이</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+</head>
+<body>
+  <nav>
+    <div class="logo"><a href="index.html">마이</a></div>
+    <div class="nav-links">
+      <a href="template.html">템플릿</a>
+      <a href="myprofiles.html">내 프로필</a>
+      <a href="edit.html">프로필 편집</a>
+    </div>
+    <div class="nav-auth" id="navAuth"></div>
+  </nav>
+
+  <div class="tpl-layout">
+    <aside class="tpl-side">
+      <h3>색상 테마</h3>
+      <div id="catList"></div>
+      <hr>
+      <h3>적용할 프로필</h3>
+      <select id="profileSelect" onchange="switchProfile(this.value)"></select>
+      <p>카드는 레이아웃, 위의 색상은 테마예요. 둘 다 이 프로필에 바로 적용돼요.</p>
+    </aside>
+    <main class="tpl-main">
+      <div class="tpl-grid" id="templateGrid"></div>
+      <button class="btn-main" onclick="goToEdit()">편집하기</button>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+  <script>checkLogin(); renderTemplates();</script>
+</body>
+</html>
